@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 3,
+  "name": "Hello World",
+  "entryScreen": "screen.greeting",
+  "roles": [{ "id": "Greeter", "name": "Greeter" }],
+  "states": [
+    { "id": "state.default", "name": "Default" },
+    { "id": "state.failed", "name": "API unreachable" }
+  ],
+  "screens": [
+    { "id": "screen.greeting", "name": "Greeting", "roleIds": ["Greeter"] },
+    { "id": "screen.account", "name": "Account", "roleIds": ["Greeter"] },
+    { "id": "screen.settings", "name": "Settings", "roleIds": ["Greeter"] },
+    { "id": "screen.signed-out", "name": "Signed out", "roleIds": ["Greeter"] }
+  ],
+  "flows": [
+    {
+      "id": "flow.view-greeting",
+      "name": "View greeting",
+      "roleId": "Greeter",
+      "screenIds": ["screen.greeting", "screen.signed-out"]
+    }
+  ]
+}
