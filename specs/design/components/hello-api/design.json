@@ -1,0 +1,21 @@
+{
+  "name": "hello-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Ballerina",
+  "buildpack": "docker",
+  "appPath": "hello-api",
+  "entrypoint": "deployment/service",
+  "exposure": "internet",
+  "dependencies": [
+    {
+      "kind": "platform-resource",
+      "name": "user-auth",
+      "resourceType": "thunder-app",
+      "description": "Sign-in client; the gateway validates tokens issued for it before requests reach this service."
+    }
+  ],
+  "description": "Single responsibility: serve the fixed \"Hello, World!\" greeting to signed-in callers through one read operation; requests without a valid token are rejected at the gateway. Listens on the service port declared in workload.yaml. Stores nothing, has no database, and does not edit greetings, personalise them or expose a health endpoint.",
+  "stories": ["F2.1", "F2.2"],
+  "skillsPinned": ["openapi-conventions", "ballerina", "thunder-authentication", "api-management"]
+}

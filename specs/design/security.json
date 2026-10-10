@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "greetings",
+      "component": "hello-api",
+      "description": "The hello greeting",
+      "actions": [
+        { "handle": "read", "description": "Read the hello message" }
+      ]
+    }
+  ],
+  "groups": [
+    { "name": "Greeting Users", "description": "People who may view the hello greeting" }
+  ],
+  "roles": [
+    {
+      "name": "Greeter",
+      "description": "The signed-in user who views the greeting and signs out.",
+      "stories": ["F1.1", "F1.2", "F1.3", "F2.1", "F2.2"],
+      "grants": ["greetings:read"],
+      "assignTo": ["Greeting Users"]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-greeter", "roles": ["Greeter"] }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "hello-webapp",
+  "type": "web-application",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "hello-webapp",
+  "entrypoint": "deployment/web-application",
+  "exposure": "internet",
+  "dependencies": [
+    {
+      "kind": "component",
+      "name": "hello-api",
+      "description": "Fetches the hello message shown on the greeting page."
+    },
+    {
+      "kind": "platform-resource",
+      "name": "user-auth",
+      "resourceType": "thunder-app",
+      "description": "Signs users in through SSO (PKCE) and signs them out."
+    }
+  ],
+  "description": "Single-page React app that is the product's only user-facing surface: signs the user in through SSO, shows the hello message fetched from hello-api, offers a sign-out button, and shows a plain error message when the API cannot be reached. Serves static assets only; holds no data and no secrets.",
+  "stories": ["F1.1", "F1.2", "F1.3"],
+  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+}
